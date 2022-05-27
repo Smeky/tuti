@@ -1,0 +1,11 @@
+{
+  "name": "toms-utilities",
+  "version": "1.0.0",
+  "description": "Package of my custom utilities to make my life a bit easier",
+  "main": "index.js",
+  "author": "Tomas Sobota",
+  "license": "MIT",
+  "scripts": {
+      "tuti": "node index.js"
+  }
+}
