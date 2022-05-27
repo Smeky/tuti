@@ -1,0 +1,17 @@
+{
+  "name": "tuti-notes",
+  "version": "1.0.0",
+  "description": "Tuti Notes utility - commands related to notes QOL",
+  "main": "index.js",
+  "repository": "https://github.com/Smeky/tuti/utilities/notes",
+  "author": "Tomas Sobota",
+  "license": "MIT",
+  "scripts": {
+    "notes": "node index.js"
+  },
+  "dependencies": {
+    "@notionhq/client": "^1.0.4",
+    "commander": "^9.2.0",
+    "open": "^8.4.0"
+  }
+}

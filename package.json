@@ -5,7 +5,13 @@
   "main": "index.js",
   "author": "Tomas Sobota",
   "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
-      "tuti": "node index.js"
+    "tuti": "node index.js"
+  },
+  "dependencies": {
+    "commander": "^9.2.0"
   }
 }
