@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "extends": "eslint:recommended",
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "comma-dangle": ["warn", "always-multiline"],
+    "quotes": ["error", "double"],
+    "brace-style": ["error", "stroustrup"],
+    "no-var": 2,
+  }
+}

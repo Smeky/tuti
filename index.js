@@ -16,3 +16,6 @@ program
     })
 
 program.parse()
+
+const test = "haf"
+console.log(test)
