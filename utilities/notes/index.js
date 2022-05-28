@@ -1,15 +1,15 @@
-const { program } = require("commander")
-const packagejson = require("./package.json")
+import { program } from "commander"
+import createStandup from "./standup.js"
+import packagejson from "./package.json" assert { type: "json" }
 
 program
     .name(packagejson.name)
     .description(packagejson.description)
     .version(packagejson.version)
 
-program.command("standup")
+program
+    .command("standup")
     .description("Create a new notion page from template with current date as title")
-    .action(() => {
-        console.log("Notes standup run");
-    })
+    .action(createStandup)
 
 program.parse()

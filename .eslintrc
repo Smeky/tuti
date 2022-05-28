@@ -5,6 +5,10 @@
     "node": true,
     "es6": true
   },
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "sourceType": "module"
+  },
   "rules": {
     "comma-dangle": ["warn", "always-multiline"],
     "quotes": ["error", "double"],

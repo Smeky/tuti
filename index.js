@@ -1,6 +1,7 @@
-const { program } = require("commander")
-const { fork } = require("child_process")
-const packagejson = require("./package.json")
+import dotenv from "dotenv/config"
+import { program } from "commander"
+import { fork } from "child_process"
+import packagejson from "./package.json" assert { type: "json" }
 
 program
     .name(packagejson.name)
