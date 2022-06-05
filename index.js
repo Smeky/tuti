@@ -1,4 +1,4 @@
-import dotenv from "dotenv/config"
+import "dotenv/config"
 import { program } from "commander"
 import { fork } from "child_process"
 import packagejson from "./package.json" assert { type: "json" }
@@ -17,6 +17,3 @@ program
     })
 
 program.parse()
-
-const test = "haf"
-console.log(test)
