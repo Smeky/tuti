@@ -15,7 +15,8 @@
   "dependencies": {
     "commander": "^9.2.0",
     "dotenv": "^16.0.1",
-    "eslint": "^8.16.0"
+    "eslint": "^8.16.0",
+    "flat-cache": "^3.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",

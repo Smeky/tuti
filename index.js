@@ -1,4 +1,5 @@
 import "dotenv/config"
+import path from "path"
 import { program } from "commander"
 import { fork } from "child_process"
 import packagejson from "./package.json" assert { type: "json" }
@@ -13,6 +14,7 @@ program
     .description("[Todo: fill description from utility package.json]")
     .argument("[args...]")
     .action((args) => {
+        process.env.TUTI_UTILITY_DIR = path.resolve(".", "utilities/notes")
         fork("utilities/notes", args)
     })
 

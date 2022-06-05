@@ -8,7 +8,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "notes": "node index.js"
+    "notes": "node index.js",
+    "clear-cache": "rm ./.cache"
   },
   "dependencies": {
     "@notionhq/client": "^1.0.4",
