@@ -7,6 +7,11 @@
   },
   "parser": "@babel/eslint-parser",
   "parserOptions": {
+    "babelOptions": {
+      "plugins": [
+        "@babel/plugin-syntax-import-assertions"
+      ]
+    },
     "sourceType": "module",
     "requireConfigFile": false,
   },
