@@ -1,10 +1,5 @@
-import { Client } from "@notionhq/client"
-import open from "open"
+import { createPage, openPage } from "./notion.js"
 import flatCache from "flat-cache"
-
-function openInBrowser(url) {
-    open(url, { app: { name: "chrome", arguments: [`--profile-directory=${process.env.TUTI_NOTES_STANDUP_CHROME_PROFILE || "Default"}`] }})
-}
 
 function loadCache() {
     return flatCache.load(".cache", process.env.TUTI_UTILITY_DIR)
@@ -25,44 +20,41 @@ function writeLastCreatedPage(pageName, pageUrl) {
     cache.save()
 }
 
-async function createPage(pageName) {
-    const notion = new Client({ auth: process.env.TUTI_NOTION_APIKEY })
-    const response = await notion.pages.create({
-      parent: {
-        page_id: process.env.TUTI_NOTES_STANDUP_PAGEID,
-      },
-      properties: {
-        title: {
-          type: "title",
-          title: [
-            {
-              type: "text",
-              text: {
-                content: pageName,
-              },
-            },
-          ],
+function getPageOptions(pageName) {
+    return {
+        parent: {
+            page_id: process.env.TUTI_NOTES_STANDUP_PAGEID,
         },
-      },
-      children: [
-        {
-          object: "block",
-          type: "heading_3",
-          heading_3: {
-            rich_text: [
-              {
-                type: "text",
-                text: {
-                  content: "Topics:",
+        properties: {
+            title: {
+                type: "title",
+                title: [
+                    {
+                        type: "text",
+                        text: {
+                            content: pageName,
+                        },
+                    },
+                ],
+            },
+        },
+        children: [
+            {
+                object: "block",
+                type: "heading_3",
+                heading_3: {
+                    rich_text: [
+                        {
+                            type: "text",
+                            text: {
+                                content: "Topics:",
+                            },
+                        },
+                    ],
                 },
-              },
-            ],
-          },
-        }
-      ],
-    })
-
-    return response
+            },
+        ],
+    }
 }
 
 export default async () => {
@@ -72,12 +64,12 @@ export default async () => {
     // If today's page has already been created
     if (inCache.pageName === pageName) {
         // Todo: check if exists on notion (deleted by user)
-        openInBrowser(inCache.pageUrl)
+        openPage(inCache.pageUrl, process.env.TUTI_NOTES_STANDUP_CHROME_PROFILE)
     }
     else {
         // Todo: check if page exists on notion
-        const res = await createPage(pageName)
+        const res = await createPage(getPageOptions(pageName))
         writeLastCreatedPage(pageName, res.url)
-        openInBrowser(res.url)
+        openPage(res.url, process.env.TUTI_NOTES_STANDUP_CHROME_PROFILE)
     }
 }
