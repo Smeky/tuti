@@ -29,7 +29,7 @@ async function createPage(pageName) {
     const notion = new Client({ auth: process.env.TUTI_NOTION_APIKEY })
     const response = await notion.pages.create({
       parent: {
-        page_id: process.env.TUTI_NOTION_PAGEID,
+        page_id: process.env.TUTI_NOTES_STANDUP_PAGEID,
       },
       properties: {
         title: {
