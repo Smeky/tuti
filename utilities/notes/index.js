@@ -1,6 +1,6 @@
 import { program } from "commander"
-import { openPage } from "./notion.js"
-import createStandup from "./standup.js"
+import { appendToIdeas, openIdeas } from "./ideas.js"
+import openStandup from "./standup.js"
 import packagejson from "./package.json" assert { type: "json" }
 
 program
@@ -11,13 +11,18 @@ program
 program
     .command("standup")
     .description("Create a new notion page from template with current date as title")
-    .action(createStandup)
+    .action(openStandup)
 
 program
     .command("ideas")
+    .argument("[note]", "Appends the note to ideas, if provided")
     .description("Opens the ideas page in notion\n(pageId is defined via .env)")
-    .action(() => {
-        openPage(process.env.TUTI_NOTES_IDEAS_URL, process.env.TUTI_NOTES_IDEAS_CHROME_PROFILE)
+    .action((note) => {
+        if (note) {
+            appendToIdeas(note)
+        }
+
+        openIdeas(process.env.TUTI_NOTES_IDEAS_URL, process.env.TUTI_NOTES_IDEAS_CHROME_PROFILE)
     })
 
 program.parse()
