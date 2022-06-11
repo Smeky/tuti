@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Tuti Notes utility - commands related to notes QOL",
   "main": "index.js",
-  "repository": "https://github.com/Smeky/tuti/utilities/notes",
+  "repository": "https://github.com/Smeky/tuti/lib/modules/notes",
   "author": "Tomas Sobota",
   "license": "MIT",
   "type": "module",

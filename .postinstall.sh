@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd ./lib/utilities/
+cd ./lib/modules/
 
 for d in */ ; do
     yarn --cwd $d install
