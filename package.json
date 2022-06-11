@@ -2,15 +2,20 @@
   "name": "toms-utilities",
   "version": "1.0.0",
   "description": "Package of my custom utilities to make my life a bit easier",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "author": "Tomas Sobota",
   "license": "MIT",
   "type": "module",
+  "preferGlobal": true,
   "engines": {
     "node": ">=18.0.0"
   },
   "scripts": {
-    "tuti": "node --no-warnings index.js"
+    "tuti": "node ./lib/index.js",
+    "global-install": "npm i -g ."
+  },
+  "bin": {
+    "tuti": "./bin/tuti --no-warnings"
   },
   "dependencies": {
     "commander": "^9.2.0",
