@@ -12,10 +12,11 @@
   },
   "scripts": {
     "tuti": "node ./lib/index.js",
+    "postinstall": "sh ./.postinstall.sh",
     "global-install": "npm i -g ."
   },
   "bin": {
-    "tuti": "./bin/tuti --no-warnings"
+    "tuti": "./bin/tuti"
   },
   "dependencies": {
     "commander": "^9.2.0",
