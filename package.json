@@ -7,16 +7,13 @@
   "license": "MIT",
   "type": "module",
   "preferGlobal": true,
-  "engines": {
-    "node": ">=18.0.0"
-  },
   "scripts": {
     "tuti": "node ./lib/index.js",
     "postinstall": "sh ./.postinstall.sh",
     "global-install": "npm i -g ."
   },
   "bin": {
-    "tuti": "./bin/tuti"
+    "tuti": "./bin/tuti.js"
   },
   "dependencies": {
     "commander": "^9.2.0",
